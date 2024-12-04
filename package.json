@@ -11,9 +11,5 @@
   },
   "author": "Trojan",
   "license": "ISC",
-  "description": "",
-  "dependencies": {
-    "cowsay": "^1.6.0",
-    "currency-converter-lt": "^2.0.1"
-  }
+  "description": ""
 }
