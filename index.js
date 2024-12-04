@@ -1,7 +1,9 @@
-/*const os = require("os");
-let res = os.platform();
-console.log(res);*/
+const http = require("http");
+let server = http.createServer((req, res) => {});
 
-const my_math = require("./my_math");
-let rest = my_math.add(4, 5);
-console.log(rest);
+const Port = 3000;
+const Host = "127.0.0.1";
+
+server.listen(Port, Host, () => {
+  console.log(`Server has started: http://${Host}:${Port}`);
+});
