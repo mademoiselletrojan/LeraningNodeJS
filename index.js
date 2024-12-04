@@ -1,2 +1,5 @@
-let num = 5;
-console.log(`variable: ${num}`);
+const CC = require("currency-converter-lt");
+let currencyConverter = new CC({ from: "USD", to: "JPY", amount: 100 });
+currencyConverter.convert().then((response) => {
+  console.log(`Result: ${response}`);
+});
