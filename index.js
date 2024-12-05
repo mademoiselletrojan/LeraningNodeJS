@@ -5,15 +5,10 @@ const path = require("path");
 let server = http.createServer((req, res) => {
   res.writeHead(200, { "Content-Type": "text/html; charset=utf-8" });
 
-  const filePath = path.join(__dirname, "temp", "index.html");
-  const stream = fs.createReadStream(filePath);
-  stream.pipe(res);
-
-  stream.on("error", (err) => {
-    res.writeHead(500, { "Content-Type": "text/plain" });
-    res.end("Internal Server Error");
-    console.error("Error reading file:", err);
-  });
+  if (req.url == "/") fs.createReadStream("./temp/index.html").pipe(res);
+  else if (req.url == "/about")
+    fs.createReadStream("./temp/about.html").pipe(res);
+  else fs.createReadStream("./temp/error.html").pipe(res);
 });
 
 const Port = 3000;
